@@ -1,0 +1,44 @@
+#top-navSK{
+    padding:1% 0;
+    .flexMixin(@justify:center, @align:center);
+    flex-wrap:wrap;
+    margin:0 auto;
+    .other-nav-divSK{
+        .flexMixin(@justify:space-between);
+        h1{
+            width:45%;
+        }
+        .nav-imageSK{
+            width:5%;
+        }
+    }
+    .nav-sectionSK{
+        width:100%;
+        .flexMixin(@justify:flex-end, @align:center);
+        nav{
+            .flexMixin(@justify:flex-end, @align:center);
+            width:50%;
+            a{
+                margin-left:2%;
+                font-size:1.8rem;
+            }
+        }
+    }
+}
+#bottom-navSK{
+    padding:1% 0;
+    .nav-sectionSK{
+        margin:1% auto;
+        width:18%;
+        nav{
+            .flexMixin(@justify:space-between, @align:center);
+        }
+        a{
+            font-size:1.5rem;
+        }
+    }
+    h4{
+        font-size:1.5rem;
+        text-align:center;
+    }
+}
