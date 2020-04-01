@@ -4,3 +4,17 @@
     justify-content:@justify;
     align-items:@align;
 } 
+.button-specs(@b-color:@salmon,@width:200px,@font-color:white) {
+    display:block;
+    background-color: @b-color;
+    width:@width;
+    height:45px;
+    font-size:2rem;
+    border-radius:10px;
+    color:@font-color;
+    text-align:center;
+    &:hover{
+        background-color:white;
+        color:@b-color;
+    }
+}

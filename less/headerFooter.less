@@ -1,44 +1,84 @@
-#top-navSK{
-    padding:1% 0;
-    .flexMixin(@justify:center, @align:center);
-    flex-wrap:wrap;
-    margin:0 auto;
-    .other-nav-divSK{
-        .flexMixin(@justify:space-between);
-        h1{
-            width:45%;
-        }
-        .nav-imageSK{
-            width:5%;
-        }
-    }
-    .nav-sectionSK{
-        width:100%;
-        .flexMixin(@justify:flex-end, @align:center);
-        nav{
-            .flexMixin(@justify:flex-end, @align:center);
-            width:50%;
-            a{
-                margin-left:2%;
-                font-size:1.8rem;
-            }
-        }
-    }
+#top-navSK {
+	padding: 1% 0;
+	.flexMixin(@direction:row, @justify:center, @align:center);
+	flex-wrap: wrap;
+	margin: 0 auto;
+	.other-nav-divSK {
+		.flexMixin(@direction:row, @justify:space-between);
+		width: 100%;
+		h1 {
+			width: 50%;
+			margin-top: 0;
+			@media @tablet{
+				width:100%;
+				text-align: center;
+			}
+		}
+		.nav-imageSK {
+			width: 8.5%;
+			@media @tablet{
+				display:none;
+			}
+		}
+	}
+	.nav-sectionSK {
+		width: 100%;
+		.flexMixin(@justify:flex-end, @align:center);
+		@media @tablet{
+			@justify:center;
+		}
+		nav {
+			width: 55%;
+			@media @tablet{
+				display:flex;
+				justify-content:center;
+				flex-wrap: wrap;
+				width: 100%;
+		}
+			a {
+				margin-left: 2%;
+				font-size: 1.8rem;
+				@media @tablet{
+					.button-specs();
+					margin:1% 1%;
+				}
+			}
+		}
+	}
 }
-#bottom-navSK{
-    padding:1% 0;
-    .nav-sectionSK{
-        margin:1% auto;
-        width:18%;
-        nav{
-            .flexMixin(@justify:space-between, @align:center);
-        }
-        a{
-            font-size:1.5rem;
-        }
-    }
-    h4{
-        font-size:1.5rem;
-        text-align:center;
-    }
+#testimonialSK{
+	@media @phone{
+		width:80%;
+		text-align:center;
+		order:10;
+	}
+}
+#bottom-navSK {
+	padding: 1% 0;
+	.nav-sectionSK {
+		margin: 1% auto;
+		width: 20%;
+		@media @tablet{
+			width:35%;
+		}
+		@media @phone{
+			width:100%;
+		}
+		nav {
+			.flexMixin(@direction:row, @justify:space-between, @align:center);
+			@media @phone{
+				justify-content:center;
+			}
+		}
+		a {
+			font-size: 1.5rem;
+			@media @phone{
+				margin:1%;
+			}
+		}
+	}
+	h4 {
+		font-size: 1.5rem;
+		text-align: center;
+	}
 }
