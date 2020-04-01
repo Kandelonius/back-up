@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  border: 1px blue solid;
   max-width: 100%;
 }
 html {
@@ -124,6 +123,7 @@ p {
   #top-navSK .nav-sectionSK nav a:hover {
     background-color: white;
     color: #eb7c74;
+    border: 1px solid #eb7c74;
   }
 }
 @media (max-width: 500px) {
