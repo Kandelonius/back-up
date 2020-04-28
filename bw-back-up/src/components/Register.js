@@ -19,6 +19,10 @@ const initialFormErrors = {
     password: '',
 }
 const formSchema = yup.object().shape({
+    firstname: yup
+        .string(),
+    lastname: yup
+        .string(),
     username: yup
         .string()
         .min(2, 'username must have at least 2 characters!')
@@ -60,10 +64,12 @@ function Register(props) {
         evt.preventDefault()
 
         const newUser = {
+            firstname: userValues.firstname,
+            lastname: userValues.lastname,
             username: userValues.username,
             email: userValues.email,
             password: userValues.password,
-            instr: Object.keys(userValues.instr),
+            instructor: Object.keys(userValues.instr),
         }
         postUser(newUser)
         setUserValues(initialFormValues)
@@ -100,8 +106,8 @@ function Register(props) {
 
         setUserValues({
             ...userValues,
-            toppings: {
-                ...userValues.toppings,
+            instructor: {
+                ...userValues.instructor,
                 [name]: isChecked,
             }
         })
@@ -133,42 +139,48 @@ function Form(props) {
             </header>
             <img src="/img/fitness-couple.jpg" className="registerImage" alt="Man holding woman up with his feet as she poses" />
             <h2>Sign Up</h2>
-            <div className="input-form">
-                <label>First Name:&nbsp;
-                        <input
-                        value={values.firstname}
-                        onChange={onInputChange}
-                        name='username'
-                        type='text'
-                    /></label>
-                <label>Last Name:&nbsp;
-                        <input
-                        value={values.lastname}
-                        onChange={onInputChange}
-                        name='username'
-                        type='text'
-                    /></label>
-                <label>Username:&nbsp;
-                        <input
-                        value={values.username}
-                        onChange={onInputChange}
-                        name='username'
-                        type='text'
-                    /></label>
-                <label>Email:&nbsp;
-                        <input
-                        value={values.email}
-                        onChange={onInputChange}
-                        name='email'
-                        type='text'
-                    /></label>
-                <label>Password:&nbsp;
-                        <input
-                        value={values.password}
-                        onChange={onInputChange}
-                        name='password'
-                        type='password'
-                    /></label>
+            <div className="field-container">
+                <div className='errors'>
+                        {errors.username}
+                    </div>
+                
+                <div className="input-form">
+                    <label>First Name:&nbsp;
+                            <input
+                            value={values.firstname}
+                            onChange={onInputChange}
+                            name='firstname'
+                            type='text'
+                        /></label>
+                    <label>Last Name:&nbsp;
+                            <input
+                            value={values.lastname}
+                            onChange={onInputChange}
+                            name='lastname'
+                            type='text'
+                        /></label>
+                    <label>Username:&nbsp;
+                            <input
+                            value={values.username}
+                            onChange={onInputChange}
+                            name='username'
+                            type='text'
+                        /></label>
+                    <label>Email:&nbsp;
+                            <input
+                            value={values.email}
+                            onChange={onInputChange}
+                            name='email'
+                            type='text'
+                        /></label>
+                    <label>Password:&nbsp;
+                            <input
+                            value={values.password}
+                            onChange={onInputChange}
+                            name='password'
+                            type='password'
+                        /></label>
+                </div>
             </div>
             <label>Instructor?:&nbsp;
         <input
