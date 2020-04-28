@@ -20,20 +20,24 @@ const initialFormErrors = {
 }
 const formSchema = yup.object().shape({
     firstname: yup
-        .string(),
+        .string()
+        .min(1, '*first name is required*')
+        .required('firstname is required'),
     lastname: yup
-        .string(),
+        .string()
+        .min(1, '*last name is required*')
+        .required('lastname is required'),
     username: yup
         .string()
-        .min(2, 'username must have at least 2 characters!')
+        .min(2, '*username must have at least 2 characters!*')
         .required('username is required'),
     email: yup
         .string()
-        .email('a VALID email is required')
+        .email('*a VALID email is required*')
         .required('email is required'),
     password: yup
         .string()
-        .min(6, 'password must have at least 6 characters!')
+        .min(6, '*password must have at least 6 characters!*')
         .required('password is required'),
 })
 function Register(props) {
@@ -69,7 +73,7 @@ function Register(props) {
             username: userValues.username,
             email: userValues.email,
             password: userValues.password,
-            instructor: Object.keys(userValues.instr),
+            instructor: Object.keys(userValues.instructor),
         }
         postUser(newUser)
         setUserValues(initialFormValues)
@@ -141,8 +145,10 @@ function Form(props) {
             <h2>Sign Up</h2>
             <div className="field-container">
                 <div className='errors'>
-                        {errors.username}
-                    </div>
+                        {errors.username}<br/>
+                        {errors.email}<br/>
+                        {errors.password}
+                </div>
                 
                 <div className="input-form">
                     <label>First Name:&nbsp;
@@ -180,15 +186,20 @@ function Form(props) {
                             name='password'
                             type='password'
                         /></label>
-                </div>
-            </div>
-            <label>Instructor?:&nbsp;
+                        <label>Instructor?:&nbsp;
         <input
                     checked={values.role}
                     onChange={onCheckboxChange}
                     name='role'
                     type='checkbox'
                 /></label>
+                </div>
+                <div className='errors'>
+                        {errors.firstname}<br/>
+                        {errors.lastname}
+                </div>
+            </div>
+            
 
             <button onClick={onSubmit} disabled={disabled}>Confirm</button>
         </Div>

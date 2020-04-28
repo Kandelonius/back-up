@@ -25,13 +25,17 @@ const Div = styled.div`
         display:flex;
         .errors{
             width:20%;
+            color: crimson;
+            border: 1px solid orange;
+            padding: 1%;
+            background-color: lightgray;
         }
         .input-form{
-            width:50%;
+            width:48%;
             display:flex;
             flex-wrap: wrap;
             justify-items:space-between;
-            margin-right:28%;
+            // margin-right:28%;
         }
     }
     button{
