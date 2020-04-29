@@ -3,7 +3,7 @@ import Div from './styled-comp/login-comp.jsx'
 import axios from 'axios'
 import * as yup from 'yup'
 
-const url = "https://fitness-demo.herokuapp.com/api/secure/login"
+const url = "https://fitness-demo.herokuapp.com/api/login"
 
 const initialFormValues = {
     username: '',
@@ -34,6 +34,7 @@ function Login(props) {
         axios.post(url, user)
             .then(res => {
                 setUsers([...users, res.data])
+                console.log(res)
             })
             .catch(err => {
                 console.log(err)

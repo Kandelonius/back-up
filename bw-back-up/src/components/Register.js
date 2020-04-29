@@ -3,7 +3,7 @@ import Div from './styled-comp/register-comp.jsx'
 import axios from 'axios'
 import * as yup from 'yup'
 
-const url = "https://fitness-demo.herokuapp.com/api/secure/login"
+const url = "https://fitness-demo.herokuapp.com/api/users/register"
 
 const initialFormValues = {
     username: '',
