@@ -144,11 +144,10 @@ function Form(props) {
             <h2>Sign Up</h2>
             <div className="field-container">
                 <div className='errors'>
-                        {errors.username}<br/>
-                        {errors.email}<br/>
-                        {errors.password}
+                    {errors.username}<br />
+                    {errors.email}<br />
+                    {errors.password}
                 </div>
-                
                 <div className="input-form">
                     <label>First Name:&nbsp;
                             <input
@@ -185,21 +184,19 @@ function Form(props) {
                             name='password'
                             type='password'
                         /></label>
-                        <label>Instructor?:&nbsp;
-        <input
-                    checked={values.role}
-                    onChange={onCheckboxChange}
-                    name='role'
-                    type='checkbox'
-                /></label>
+                    <label>Instructor?:&nbsp;
+                    <input
+                            checked={values.role}
+                            onChange={onCheckboxChange}
+                            name='role'
+                            type='checkbox'
+                        /></label>
                 </div>
                 <div className='errors'>
-                        {errors.fname}<br/>
-                        {errors.lname}
+                    {errors.fname}<br />
+                    {errors.lname}
                 </div>
             </div>
-            
-
             <button onClick={onSubmit} disabled={disabled}>Confirm</button>
         </Div>
     )
