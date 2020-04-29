@@ -29,6 +29,24 @@ function Login(props) {
     const [formDisabled, setFormDisabled] = useState(true)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
 
+    // const postUser = user => {
+    //     axios.post(url, user)
+    //         .then(res => {
+    //             setUsers([...users, res.data])
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             debugger
+    //         })
+    // }
+
+    // useEffect(() => {
+    //     formSchema.isValid(userValues)
+    //         .then(valid => {
+    //             setFormDisabled(!valid)
+    //         })
+    // }, [userValues])
+
     const onSubmit = evt => {
         evt.preventDefault()
 
@@ -126,14 +144,14 @@ function LoginForm(props) {
                             name='password'
                             type='password'
                         /></label>
-                <label>Instructor:&nbsp;
+                    <label>Instructor:&nbsp;
             <input
-                        checked={values.role}
-                        onChange={onCheckboxChange}
-                        name='role'
-                        type='checkbox'
-                    /></label>
-                    </div> {/* login-input-form */}
+                            checked={values.role}
+                            onChange={onCheckboxChange}
+                            name='role'
+                            type='checkbox'
+                        /></label>
+                </div> {/* login-input-form */}
                 <div className='errors'>
                     {errors.password}
                 </div>
