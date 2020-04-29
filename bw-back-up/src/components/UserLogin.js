@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Div from './styled-comp/login-comp.jsx'
+import axios from 'axios'
 import * as yup from 'yup'
 
-const url = "https://fitness-demo.herokuapp.com/api/"
+const url = "https://fitness-demo.herokuapp.com/api/secure/login"
 
 const initialFormValues = {
     username: '',
@@ -29,23 +30,23 @@ function Login(props) {
     const [formDisabled, setFormDisabled] = useState(true)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
 
-    // const postUser = user => {
-    //     axios.post(url, user)
-    //         .then(res => {
-    //             setUsers([...users, res.data])
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //             debugger
-    //         })
-    // }
+    const postUser = user => {
+        axios.post(url, user)
+            .then(res => {
+                setUsers([...users, res.data])
+            })
+            .catch(err => {
+                console.log(err)
+                debugger
+            })
+    }
 
-    // useEffect(() => {
-    //     formSchema.isValid(userValues)
-    //         .then(valid => {
-    //             setFormDisabled(!valid)
-    //         })
-    // }, [userValues])
+    useEffect(() => {
+        formSchema.isValid(userValues)
+            .then(valid => {
+                setFormDisabled(!valid)
+            })
+    }, [userValues])
 
     const onSubmit = evt => {
         evt.preventDefault()
@@ -55,8 +56,8 @@ function Login(props) {
             password: userValues.password,
             instructor: Object.keys(userValues.instructor),
         }
-        // postUser(newUser)
-        // setUserValues(initialFormValues)
+        postUser(newUser)
+        setUserValues(initialFormValues)
     }
     const onInputChange = evt => {
         const name = evt.target.name

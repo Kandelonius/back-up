@@ -3,7 +3,7 @@ import Div from './styled-comp/register-comp.jsx'
 import axios from 'axios'
 import * as yup from 'yup'
 
-const url = "https://fitness-demo.herokuapp.com/api/"
+const url = "https://fitness-demo.herokuapp.com/api/secure/login"
 
 const initialFormValues = {
     username: '',
@@ -49,6 +49,7 @@ function Register(props) {
         axios.post(url, user)
             .then(res => {
                 setUsers([...users, res.data])
+                console.log(res)
             })
             .catch(err => {
                 console.log(err)
